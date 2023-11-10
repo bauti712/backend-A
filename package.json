@@ -5,7 +5,8 @@
   "main": "dist/app.js",
   "scripts": {
     "dev": "nodemon dist/app.js",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "prestart":"npm install && tsc"
   },
   "author": "Bautista Cola Ibañez",
   "license": "ISC",
