@@ -6,16 +6,20 @@
   "scripts": {
     "dev": "nodemon dist/app.js",
     "start": "node dist/app.js",
-    "prestart":"npm install && tsc"
+    "prestart": "npm install && tsc"
   },
   "author": "Bautista Cola Ibañez",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17"
   },
   "devDependencies": {
     "@types/cors": "^2.8.16",
-    "@types/express": "^4.17.21"
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.9.0"
   }
 }

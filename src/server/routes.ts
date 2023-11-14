@@ -1,10 +1,10 @@
 import { Router } from "express"
-import { ProductsRoutes } from "../../features/products/presentation/product_routes"
+import { ProductsRoutes } from "../routes/products_routes"
 
 export abstract class AppRoutes{
     static get routes():Router {
         const router = Router()
-        router.use('/api/products',ProductsRoutes.routes)
+        router.use('/api/products',ProductsRoutes.getRoutes())
         return router
     }
 }

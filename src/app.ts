@@ -1,4 +1,4 @@
-import Server from "./core/server/server"
+import Server from "./server/server"
 (() => {
     main()
 })()
