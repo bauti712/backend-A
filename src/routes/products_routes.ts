@@ -1,16 +1,11 @@
-import { Request, Response, Router } from "express"
+import { Router } from "express"
+import { ProductController } from "../controllers/product_controler"
 
 export abstract class ProductsRoutes{
     public static getRoutes = () => {
         const router = Router() 
-        router.get("/",(_:Request,res: Response)=>{
-            return res.json({
-                hola:"muchachos"
-            })
-
-        })
-
-
+        const productController = new ProductController()
+        router.get("/",productController.getAllProducts)
         return router
     }
 }
