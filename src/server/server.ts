@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { AppRoutes } from "./routes";
-import { appDataSource } from "../db/sqlite_connection";
+import { appDataSource } from "../db/mysql_connection";
 
 
 class Server {
