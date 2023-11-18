@@ -1,10 +1,10 @@
 import { Router } from "express"
-import { ProductController } from "../controllers/product_controler"
+import { controler } from "../controllers/controler"
 
-export abstract class ProductsRoutes{
+export abstract class Routes{
     public static getRoutes = () => {
         const router = Router() 
-        const productController = new ProductController()
+        const productController = new controler()
         router.get("/",productController.getAllProducts)
         router.post("/", productController.createproduct)
         return router
