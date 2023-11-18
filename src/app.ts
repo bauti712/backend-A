@@ -3,6 +3,6 @@ import Server from "./server/server"
 (() => {
     main()
 })()
-function main() {
+async function main() {
     new Server().start()
 }

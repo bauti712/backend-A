@@ -1,21 +1,27 @@
 
 
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column,  } from "typeorm"
 
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column()
+    @Column({
+        nullable: false,
+        unique: true,
+    })
     name!:string
 
-    @Column()
+    @Column({
+        nullable: false
+    })
     price!:number
 
-    @Column()
+    @Column({
+        nullable: true,
+    })
     imageurl?:string 
 
-
-    
 }
+

@@ -22,7 +22,6 @@ class Server {
       console.log ("conexion establecida correctamente ")
     } catch (error) {
       console.log(error)
-      
     }
     
   };

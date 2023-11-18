@@ -1,12 +1,12 @@
 import { DataSource } from "typeorm";
 import { Product } from "../models/product_model";
 
-export const appDataSource= new DataSource({
+ export const appDataSource= new DataSource({
+    "password": "123456",
     "type": "mysql",
     "host": "localhost",
-    "port": 65000,
-    "username": "bauti",
-    "password": "abcd",
+    "username": "root",
+    "port": 3306,
     "database": "db",
     "entities": [Product],
     "synchronize": true,
