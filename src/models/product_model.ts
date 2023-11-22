@@ -23,5 +23,7 @@ export class Product {
     })
     imageurl?:string 
 
+   
+
 }
 
