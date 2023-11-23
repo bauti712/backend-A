@@ -7,6 +7,7 @@ export abstract class Routes{
         const productController = new controler()
         router.get("/",productController.getAllProducts)
         router.post("/", productController.createproduct)
+        router.post("/login", productController.login )
         return router
     }
 }

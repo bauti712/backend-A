@@ -1,4 +1,5 @@
 import { DataSource } from "typeorm";
+import User from "../models/user"
 import { Product } from "../models/product_model";
 
  export const appDataSource= new DataSource({
@@ -8,7 +9,7 @@ import { Product } from "../models/product_model";
     "username": "root",
     "port": 3306,
     "database": "db",
-    "entities": [Product],
+    "entities": [Product, User],
     "synchronize": true,
     "logging": true
   })
