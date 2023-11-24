@@ -28,10 +28,7 @@ export class controler {
         }
 
         try {
-            const newProduct = new Product()
-            newProduct.name = name
-            newProduct.price = price
-            newProduct.imageurl = imageUrl
+            const newProduct = new Product(name, price, imageUrl)
             await this.productRepository.save(newProduct)
             return res.status(201).json({
                 mensaje: 'producto creado',
@@ -90,6 +87,27 @@ export class controler {
            
         }
     }
+
+    //CONTROLADOR DEL CART
+    public readonly cart = async (req:Request, res:Response) =>{
+        const {producto} = req.body
+        console.log (req.body)
+        
+    
+         try {
+             await appDataSource.manager.save(producto)
+            return res.status(200).json({mensaje: 'el producto se guardo correctamente'})
+                
+        } catch (error) {
+            console.log(error)
+
+            return res.status(400).json({mensaje:'no se pudo guardar el producto'})
+                
+        }
+           
+        
+    }
+    
 
 
 

@@ -23,6 +23,12 @@ export class Product {
     })
     imageurl?:string 
 
+    constructor(nombre: string, precio: number, image: string) {
+        this.name = nombre;
+        this.price = precio;
+        this.imageurl = image;
+    }
+
    
 
 }
