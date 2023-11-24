@@ -57,7 +57,7 @@ export class controler {
         try{
             const comparador = await appDataSource.manager.findOne(User, {where:{email, password}})
             if (comparador) {res.json({mensaje: "ingreso correcto"})}
-            else {res.json({mensaje: "ingreso fallido"})}
+            else {res.status(400).json({mensaje: "ingreso fallido"})}
         }
         catch(error){
             console.log(error)
