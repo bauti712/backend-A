@@ -5,9 +5,10 @@ export abstract class Routes{
     public static getRoutes = () => {
         const router = Router() 
         const productController = new controler()
-        router.get("/",productController.getAllProducts)
-        router.post("/", productController.createproduct)
+        router.get("/products/",productController.getAllProducts)
+        router.post("/products/", productController.createproduct)
         router.post("/login", productController.login )
+        router.post ("/register",productController.register)
         return router
     }
 }

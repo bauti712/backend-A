@@ -4,8 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    
-    "start": "node dist/app.js",
+    "start": "ts-node-dev --respawn src/app.ts",
     "prestart": "npm install && tsc"
   },
   "author": "Bautista Cola Ibañez",
@@ -16,7 +15,9 @@
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.1.6",
-    "typeorm": "^0.3.17"
+    "ts-node-dev": "^2.0.0",
+    "typeorm": "^0.3.17",
+    "typescript": "^5.3.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.16",

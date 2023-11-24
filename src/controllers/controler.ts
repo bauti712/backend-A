@@ -52,6 +52,7 @@ export class controler {
 
 
     }
+    //CONTROLADOR DEL LOGIN
     public readonly login = async (req:Request, res: Response) => {
         const {email, password} = req.body
         try{
@@ -61,6 +62,32 @@ export class controler {
         }
         catch(error){
             console.log(error)
+        }
+    }
+
+    //CONTROLADOR DEL REGISTER
+    public readonly register = async (req:Request, res:Response) =>{
+        const {email,password,name} = req.body
+        console.log (req.body)
+        
+         
+        const comparador = await appDataSource.manager.findOne(User, {where:{email}})
+        if (comparador) {
+            return res.status(400).json({ error: 'El Usuario o Email ya esta en uso' });
+        } else {
+
+            const newUser = new User(name, email, password);
+            try {
+                await appDataSource.manager.save(newUser)
+                return res.status(200).json({mensaje: 'el usuario se guardo correctamente'})
+                
+            } catch (error) {
+                console.log(error)
+
+                return res.status(400).json({mensaje:'no se puso crear el usuario'})
+                
+            }
+           
         }
     }
 
