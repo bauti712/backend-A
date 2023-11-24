@@ -54,9 +54,9 @@ export class controler {
     }
     //CONTROLADOR DEL LOGIN
     public readonly login = async (req:Request, res: Response) => {
-        const {email, password} = req.body
+        const {usuario, password} = req.body
         try{
-            const comparador = await appDataSource.manager.findOne(User, {where:{email, password}})
+            const comparador = await appDataSource.manager.findOne(User, {where:{usuario, password}})
             if (comparador) {res.json({mensaje: "ingreso correcto"})}
             else {res.status(400).json({mensaje: "ingreso fallido"})}
         }
