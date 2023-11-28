@@ -5,7 +5,7 @@ import { Product } from "./product_model"
 @Entity()
 export class ProductsPerOrder {
     @PrimaryGeneratedColumn()
-    id:string
+    id:string| undefined 
 
     @ManyToOne(() => Order, orden => orden.id)
     order:string
@@ -19,7 +19,7 @@ export class ProductsPerOrder {
     })
     cantidad:number
     
-constructor(id:string,orderId:string,productId:string,cantidad:number){
+constructor(id:string | undefined ,orderId:string,productId:string,cantidad:number){
     this.order=orderId
     this.product=productId
     this.cantidad=cantidad

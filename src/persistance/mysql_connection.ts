@@ -21,3 +21,11 @@ import { Order } from "../models/order";
 //FLUSH PRIVILEGES;
 
 
+// SELECT c.name, a.cantidad
+// FROM db.products_per_order a
+// INNER JOIN db.`order` b ON a.orderId = b.id
+// INNER JOIN db.product c ON a.productId = c.id
+// WHERE a.orderId = '8';
+
+
+

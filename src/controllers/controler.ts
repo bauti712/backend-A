@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { Product } from "../models/product_model";
 import { appDataSource } from "../persistance/mysql_connection";
 import User from "../models/user"
+import { Order } from "../models/order";
+import { ProductsPerOrder } from "../models/products_per_order";
 
 export class controler {
     productRepository = appDataSource.getRepository(Product)
@@ -90,27 +92,28 @@ export class controler {
 
     //CONTROLADOR DEL CART
     public readonly cart = async (req:Request, res:Response) =>{
-        console.log(req.body)
-        res.status(201).json({
-            message:"compra realizada"
-        })
+       const productsAcount=req.body["products"]
+       const orderRepository = appDataSource.getRepository(Order)
 
-        // const {producto} = req.body
-        // console.log (req.body)
+       const order = new Order(undefined)
+       const createdOrder = await orderRepository.save(order)
+       
+       Object.entries(productsAcount).forEach(async ([key, value]) => {
+        await this.saveProductPerOrder (createdOrder.id!, key,value as number)
+      });
+           res.status(201).json({
+            mensaje: "compra realizada"
+           })
         
-    
-        //  try {
-        //      await appDataSource.manager.save(producto)
-        //     return res.status(200).json({mensaje: 'el producto se guardo correctamente'})
-                
-        // } catch (error) {
-        //     console.log(error)
+    }
 
-        //     return res.status(400).json({mensaje:'no se pudo guardar el producto'})
-                
-        // }
-           
-        
+    private readonly saveProductPerOrder = async(orderId:string,productId:string ,amount:number)=>{
+        console.log("orderId: "+orderId)
+        console.log("productId: "+productId)
+        console.log("amount: "+amount)
+        const productsPerOrderRepository = appDataSource.getRepository(ProductsPerOrder)
+        const productsPerOrder = new ProductsPerOrder(undefined,orderId,productId,amount)
+        await productsPerOrderRepository.save (productsPerOrder)
     }
     
 
