@@ -9,6 +9,7 @@ export abstract class Routes{
         router.post("/products/", productController.createproduct)
         router.post("/login", productController.login )
         router.post ("/register",productController.register)
+        router.post ("/buy",productController.cart)
         return router
     }
 }

@@ -90,20 +90,25 @@ export class controler {
 
     //CONTROLADOR DEL CART
     public readonly cart = async (req:Request, res:Response) =>{
-        const {producto} = req.body
-        console.log (req.body)
+        console.log(req.body)
+        res.status(201).json({
+            message:"compra realizada"
+        })
+
+        // const {producto} = req.body
+        // console.log (req.body)
         
     
-         try {
-             await appDataSource.manager.save(producto)
-            return res.status(200).json({mensaje: 'el producto se guardo correctamente'})
+        //  try {
+        //      await appDataSource.manager.save(producto)
+        //     return res.status(200).json({mensaje: 'el producto se guardo correctamente'})
                 
-        } catch (error) {
-            console.log(error)
+        // } catch (error) {
+        //     console.log(error)
 
-            return res.status(400).json({mensaje:'no se pudo guardar el producto'})
+        //     return res.status(400).json({mensaje:'no se pudo guardar el producto'})
                 
-        }
+        // }
            
         
     }
